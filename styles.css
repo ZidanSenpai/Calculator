@@ -16,6 +16,9 @@ button{
 }
 .screen{
     text-align: right;
+    margin-right: 20px;
+    font-size: 24px;
+    font-family: orbitron;
 }
 .keys{
     display: flex;
@@ -31,7 +34,6 @@ button{
 .dot, .del{
     width: 91px;
 }
-
 .operator-buttons{
     width: 100px;
 }
