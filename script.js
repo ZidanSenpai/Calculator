@@ -22,53 +22,79 @@ const screenText = document.getElementById("screenText");
 let a = 0;
 let b = 0;
 let c = "+";
+let text = "";
 function showText(x) {
-    screenText.textContent += x;
+    text += x;
+    screenText.textContent = text;
 }
-
+function evaluate(a, b, c){
+    if (c == "+") {
+        return a+b;
+    }
+    if (c == "-") {
+        return a-b;
+    }
+    if (c == "*") {
+        return a*b;
+    }
+    if (c == "/") {
+        return a/b;
+    }
+}
 zero.addEventListener("click", ()=>{
-    a = 0;
     showText(0);
 })
 one.addEventListener("click", ()=>{
-    a = 1;
     showText(1);
 })
 two.addEventListener("click", ()=>{
-    a = 2;
     showText(2);
 })
 three.addEventListener("click", ()=>{
-    a = 3;
     showText(3);
 })
 four.addEventListener("click", ()=>{
-    a = 4;
     showText(4);
 })
 five.addEventListener("click", ()=>{
-    a = 5;
     showText(5);
 })
 six.addEventListener("click", ()=>{
-    a = 6;
     showText(6);
 })
 seven.addEventListener("click", ()=>{
-    a = 7;
     showText(7);
 })
 eight.addEventListener("click", ()=>{
-    a = 8;
     showText(8);
 })
 nine.addEventListener("click", ()=>{
-    a = 9;
     showText(9);
 })
 ac.addEventListener("click", ()=>{
+    text = "";
     screenText.textContent = "";
 })
 del.addEventListener("click", ()=>{
-    screenText.textContent.slice(0,-1);
+    text = text.slice(0, -1);
+    screenText.textContent = text;
+})
+plus.addEventListener("click", ()=>{
+    c = "+";
+    showText(c);
+})
+minus.addEventListener("click", ()=>{
+    c = "-";
+    showText(c);
+})
+multiply.addEventListener("click", ()=>{
+    c = "*";
+    showText(c);
+})
+divide.addEventListener("click", ()=>{
+    c = "/";
+    showText(c);
+})
+equals.addEventListener("click", ()=>{
+    screenText.textContent = evaluate(a,b,c);
 })
