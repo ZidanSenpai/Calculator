@@ -95,6 +95,12 @@ divide.addEventListener("click", ()=>{
     c = "/";
     showText(c);
 })
-equals.addEventListener("click", ()=>{
-    screenText.textContent = evaluate(a,b,c);
-})
+equals.addEventListener("click", () => {
+    // For now: basic support for a single operation
+    const operatorMatch = text.match(/[+\-*/]/);
+    if (!operatorMatch) return;
+    const operator = operatorMatch[0];
+    const [a, b] = text.split(operator).map(Number);
+    screenText.textContent = evaluate(a, b, operator);
+    text = ""; // clear after evaluation
+});
